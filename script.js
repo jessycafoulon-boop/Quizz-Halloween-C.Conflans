@@ -6,15 +6,15 @@
 // PERSONNALISE LES QUESTIONS ET LES RÉPONSES
 const questions = [
   {
-    type: "LES PUBLICATIONS DE LA VILLE",
-    text: "Je raconte la vie de la mairie. On y retrouve les dernières nouvelles, des événements et des portraits.",
+    type: "LES COULISSES DE LA MAIRIE",
+    text: "Je raconte les coulisses de la vie de la mairie. On y retrouve les dernières nouvelles, les événements et des portraits des collègues.",
     hint: "Quel support faut-il consulter pour découvrir toute cette actualité ?",
-    answers: ["Le journal municipal", "Le menu de la cantine", "Le TAC"],
+    answers: ["Le TAC", "Le menu de la cantine", "Le VAC"],
     correct: 0,
-    explanation: "Le journal municipal rassemble les actualités, les événements et les portraits de la ville."
+    explanation: "Le TAC rassemble les actualités, les événements et les portraits de la ville."
   },
   {
-    type: "LES COULISSES DE LA MAIRIE",
+    type: "QUI FAIS QUOI ?",
     text: "Quand tu cherches à comprendre qui dirige quel service, je suis la carte aux trésors des agents.",
     hint: "Quel document permet de visualiser l’organisation des services ?",
     answers: ["Le calendrier des fêtes", "L’organigramme", "Le plan des rues"],
@@ -22,18 +22,18 @@ const questions = [
     explanation: "L’organigramme présente les services et les liens hiérarchiques au sein de la mairie."
   },
   {
-    type: "UN NOUVEL HABITANT ?",
+    type: "UN NOUVEL AGENT TRÈS SPÉCIAL ?",
     text: "J’ai quatre pattes, deux grandes oreilles et je viens de rejoindre la mairie.",
-    hint: "Qui suis-je ? Remplace les propositions ci-dessous par le nom de la mascotte si nécessaire.",
-    answers: ["La mascotte de la mairie", "Le fantôme des archives", "Le chat du voisin"],
+    hint: "Qui suis-je ?",
+    answers: ["Matricule 300, chiot à la Police municipale", "Moka, le lapin mascotte de la crèche Arlequin", "Gloria, la chèvre qui écopature au Parc du Prieuré"],
     correct: 0,
     explanation: "Cette question vise la mascotte animale de la mairie. Pense à préciser son nom dans les réponses si tu le souhaites."
   },
   {
-    type: "UN SIGLE À DÉCHIFFRER",
-    text: "À Conflans, trois lettres résument une démarche : « Travailler À Conflans ».",
-    hint: "Quel sigle correspond à cette expression ?",
-    answers: ["TAC", "RER", "DGS"],
+    type: "NOËL APPROCHE",
+    text: "Quand auras lieu l'arbre de Noël du COS ? ».",
+    hint: "Connaissez-vous la date ?",
+    answers: ["Le 12 décembre à partir de 14h00", "le 25 décembre à minuit", "lundi de Pâques"],
     correct: 0,
     explanation: "TAC signifie « Travailler À Conflans »."
   },
@@ -53,9 +53,9 @@ const bonus = {
   text: "Sous quel surnom notre ville est-elle connue ?",
   hint: "Une dernière énigme pour les enquêteurs les plus attentifs.",
   answers: [
-    "Réponse à personnaliser",
-    "Autre proposition",
-    "Autre proposition"
+    "La capitale de la batellerie",
+    "Le royaume du roi Arthur",
+    "Le Confluent"
   ],
   correct: 0,
   explanation: "Pense à remplacer les propositions par les surnoms que tu souhaites faire deviner."
