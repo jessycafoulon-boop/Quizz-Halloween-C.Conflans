@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    QUIZ : LES COULISSES DE LA MAIRIE DE CONFLANS
    Questions, score, résultats, musique et questionnaire
@@ -460,4 +459,3 @@ document.addEventListener("visibilitychange", () => {
 });
 
 window.addEventListener("focus", resumeMissionMusicIfNeeded);
-```
