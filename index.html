@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171022">
+  <title>Le mystère de la mairie — Quiz Halloween</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Accueil du quiz"><span class="brand-mark">✦</span> CONFLANS <span class="brand-muted">/ LE MYSTÈRE</span></a>
+    <div class="top-right"><span class="moon">☾</span><span>ÉDITION HALLOWEEN</span></div>
+  </header>
+
+  <main class="shell">
+    <section id="videoIntro" class="screen video-intro-screen">
+      <div class="video-intro-content">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CONFLANS-SAINTE-HONORINE PRÉSENTE</p>
+        <div class="opening-video-frame">
+          <video id="openingVideo" autoplay muted playsinline preload="auto">
+            <source src="assets/intro-halloween.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+        </div>
+        <div class="video-intro-bottom">
+          <span class="video-intro-label"><span class="live-dot"></span> LE MYSTÈRE COMMENCE…</span>
+          <button id="skipVideoBtn" class="btn btn-secondary">Passer l’introduction <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro" class="screen intro-screen hidden">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> UNE ENQUÊTE À CONFLANS-SAINTE-HONORINE</p>
+        <h1>Le mystère<br>de la <em>mairie.</em></h1>
+        <p class="lead">La nuit est tombée sur Conflans… Des indices se cachent dans les coulisses de la ville. Sauras-tu les retrouver avant minuit&nbsp;?</p>
+        <div class="intro-meta"><span>05 ÉNIGMES</span><i></i><span>1 QUESTION BONUS</span><i></i><span>À TOI DE JOUER</span></div>
+        <button id="startBtn" class="btn btn-primary">Entrer dans le mystère <span>↗</span></button>
+      </div>
+      <div class="intro-art">
+        <div class="video-frame">
+          <div class="video-still" aria-hidden="true"><span>☾</span><b>LE MYSTÈRE<br>DE LA MAIRIE</b><small>CONFLANS · 31 OCTOBRE</small></div>
+          <div class="video-caption"><span class="live-dot"></span> CONFLANS, APRÈS LA TOMBÉE DE LA NUIT</div>
+        </div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-pumpkin" aria-hidden="true">🎃</div>
+        <div class="art-note">DOSSIER Nº 31<br><b>CLASSÉ SECRET</b></div>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen quiz-screen hidden" aria-live="polite">
+      <div class="quiz-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span> DOSSIER MUNICIPAL CONFIDENTIEL</p>
+        <div class="progress-row"><span id="questionCounter">ÉNIGME 01 / 05</span><span id="scoreLabel">0 POINT</span></div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+      <div class="question-layout">
+        <div class="question-side">
+          <div class="sigil">?</div>
+          <p class="side-label">INDICE À DÉCRYPTER</p>
+          <p class="side-quote">« Les réponses sont parfois cachées là où on les attend le moins… »</p>
+          <div class="side-stamp">ARCHIVES<br><strong>CONFLANS</strong></div>
+        </div>
+        <div class="question-main">
+          <p id="questionType" class="question-type">ÉNIGME MUNICIPALE</p>
+          <h2 id="questionText">Chargement de l’énigme…</h2>
+          <p id="questionHint" class="hint"></p>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback hidden" role="status"></div>
+          <div class="question-actions">
+            <span id="answerNote" class="answer-note">Choisis une réponse pour continuer.</span>
+            <button id="nextBtn" class="btn btn-primary" disabled>Valider l’indice <span>→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" class="screen result-screen hidden">
+      <div class="result-symbol">✦</div>
+      <p class="eyebrow"><span class="eyebrow-line"></span> ENQUÊTE TERMINÉE</p>
+      <h1 id="resultTitle">Le mystère est levé.</h1>
+      <p id="resultText" class="lead"></p>
+      <div class="score-card"><span>TON SCORE</span><strong id="finalScore">0/5</strong><span id="scoreMessage">Chaque indice compte.</span></div>
+      <div class="result-actions"><button id="replayBtn" class="btn btn-primary">Rejouer <span>↻</span></button><button id="reviewBtn" class="btn btn-secondary">Revoir les réponses</button></div>
+      <p class="small-note">Le mystère de la mairie est résolu… ou presque.</p>
+    </section>
+
+    <section id="review" class="screen review-screen hidden">
+      <p class="eyebrow"><span class="eyebrow-line"></span> CARNET D’ENQUÊTE</p>
+      <h1>Les réponses <em>révélées.</em></h1>
+      <div id="reviewList" class="review-list"></div>
+      <button id="backResultBtn" class="btn btn-primary">Retour au résultat <span>→</span></button>
+    </section>
+  </main>
+  <footer class="footer"><span>CONFLANS-SAINTE-HONORINE</span><span>UN QUIZ QUI FAIT FRISSONNER ✦</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
