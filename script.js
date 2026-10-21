@@ -7,32 +7,32 @@
 const questions = [
   {
     type: "LES COULISSES DE LA MAIRIE",
-    text: "Avec moi, les coulisses de la mairie et le quotidien des agents n'ont plus de scret pour toi ! Je te raconte les dernières nouvelles, les événements passés ou à venir et te partage de jolis portraits des collègues.",
+    text: "Avec moi, les coulisses de la mairie et le quotidien des collègues n'ont plus aucun secret pour toi ! Je te raconte les dernières nouvelles, les événements passés ou à venir et te partage de jolis portraits !",
     hint: "Qui suis-je ?",
     answers: ["Le TAC", "Le menu de la cantine", "Le VAC"],
     correct: 0,
-    explanation: "Le TAC, est ton journal interne, incontournable et riche en informations pour te tenir informé des dernières actualités !"
+    explanation: "La bonne réponse est le TAC, ton journal interne ! Le nouveau numéro est en ligne, va vite le consulter pour connaître les dernières actualités !"
   },
   {
     type: "QUI FAIS QUOI ?",
-    text: "Quand tu cherches à joindre un collègue ou à connaître ses fonctions, je suis ta carte aux trésors",
-    hint: "Quel onglet tu peux consulter dans C.conflans pour retrouver ces informations ?",
+    text: "Si tu cherches à joindre un collègue ou à connaître ses fonctions, je suis ta carte aux trésors",
+    hint: "Sais-tu sur quel onglet cliquer dans C.Conflans pour y accéder ?",
     answers: ["Le calendrier des fêtes", "L’annuaire", "Le plan des rues"],
     correct: 1,
-    explanation: "L’annuaire te permettra de retrouver rapidement, juste en tapant son nom, un collègue et sa fonction au sein de la mairie !"
+    explanation: "C'est bien sûr l’annuaire ! Pratique et intuitif, il te permettra de retrouver rapidement un collègue, sa fonction et même de l'appeller, juste en tapant son nom !"
   },
   {
     type: "UN NOUVEL AGENT TRÈS SPÉCIAL ?",
-    text: "J’ai quatre pattes, deux grandes oreilles et je viens de rejoindre la mairie.",
+    text: "J’ai quatre pattes, deux grandes oreilles et je viens de rejoindre la mairie",
     hint: "Qui suis-je ?",
-    answers: ["Matricule 300, chiot à la Police municipale", "Moka, le lapin mascotte de la crèche Arlequin", "Gloria, la chèvre qui écopature au Parc du Prieuré"],
+    answers: ["Matricule 300, chiot à la Police municipale", "Moka, lapin mascotte de la crèche Arlequin", "Gloria, la chèvre qui écopature au Parc du Prieuré"],
     correct: 0,
-    explanation: "Cet adorable malinois vient de rejoindre nos équipes ! Si tu veux en savoir plus, vas voir l'article qui lui a été consacré cette semaine !"
+    explanation: "La bonne réponse est Matricule 300 ! Cet adorable Malinois vient de rejoindre nos équipes 🥰 Si tu veux en savoir plus, consulte l'article qui lui a été consacré cette semaine !"
   },
   {
     type: "NOËL APPROCHE",
     text: "Quand auras lieu l'arbre de Noël du COS ? ».",
-    hint: "Connaissez-vous la date ?",
+    hint: "Tu connais la date ?",
     answers: ["Le 12 décembre à partir de 14h00", "le 25 décembre à minuit", "lundi de Pâques"],
     correct: 0,
     explanation: "Et oui, le 12 décembre prochain, petits et grands sont invités à partagés un moment festif et plein de surprises, à condition de s'y être incrit bien sûr  »."
@@ -58,7 +58,7 @@ const bonus = {
     "Le Confluent"
   ],
   correct: 0,
-  explanation: "Pense à remplacer les propositions par les surnoms que tu souhaites faire deviner."
+  explanation: "La capitale de la batellerie ! Fière de ce surnom, notre ville possède un joli musée dédié à l'histoire de notre ville. Si ce n'est pas déjà fait, va vite le visiter !"
 };
 
 // =========================================================
