@@ -7,19 +7,19 @@
 const questions = [
   {
     type: "LES COULISSES DE LA MAIRIE",
-    text: "Je raconte les coulisses de la vie de la mairie. On y retrouve les dernières nouvelles, les événements et des portraits des collègues.",
-    hint: "Quel support faut-il consulter pour découvrir toute cette actualité ?",
+    text: "Avec moi, les coulisses de la mairie et le quotidien des agents n'ont plus de scret pour toi ! Je te raconte les dernières nouvelles, les événements passés ou à venir et te partage de jolis portraits des collègues.",
+    hint: "Qui suis-je ?",
     answers: ["Le TAC", "Le menu de la cantine", "Le VAC"],
     correct: 0,
-    explanation: "Le TAC rassemble les actualités, les événements et les portraits de la ville."
+    explanation: "Le TAC, est ton journal interne, incontournable et riche en informations pour te tenir informé des dernières actualités !"
   },
   {
     type: "QUI FAIS QUOI ?",
-    text: "Quand tu cherches à comprendre qui dirige quel service, je suis la carte aux trésors des agents.",
-    hint: "Quel document permet de visualiser l’organisation des services ?",
-    answers: ["Le calendrier des fêtes", "L’organigramme", "Le plan des rues"],
+    text: "Quand tu cherches à joindre un collègue ou à connaître ses fonctions, je suis ta carte aux trésors",
+    hint: "Quel onglet tu peux consulter dans C.conflans pour retrouver ces informations ?",
+    answers: ["Le calendrier des fêtes", "L’annuaire", "Le plan des rues"],
     correct: 1,
-    explanation: "L’organigramme présente les services et les liens hiérarchiques au sein de la mairie."
+    explanation: "L’annuaire te permettra de retrouver rapidement, juste en tapant son nom, un collègue et sa fonction au sein de la mairie !"
   },
   {
     type: "UN NOUVEL AGENT TRÈS SPÉCIAL ?",
@@ -27,7 +27,7 @@ const questions = [
     hint: "Qui suis-je ?",
     answers: ["Matricule 300, chiot à la Police municipale", "Moka, le lapin mascotte de la crèche Arlequin", "Gloria, la chèvre qui écopature au Parc du Prieuré"],
     correct: 0,
-    explanation: "Cette question vise la mascotte animale de la mairie. Pense à préciser son nom dans les réponses si tu le souhaites."
+    explanation: "Cet adorable malinois vient de rejoindre nos équipes ! Si tu veux en savoir plus, vas voir l'article qui lui a été consacré cette semaine !"
   },
   {
     type: "NOËL APPROCHE",
@@ -35,7 +35,7 @@ const questions = [
     hint: "Connaissez-vous la date ?",
     answers: ["Le 12 décembre à partir de 14h00", "le 25 décembre à minuit", "lundi de Pâques"],
     correct: 0,
-    explanation: "TAC signifie « Travailler À Conflans »."
+    explanation: "Et oui, le 12 décembre prochain, petits et grands sont invités à partagés un moment festif et plein de surprises, à condition de s'y être incrit bien sûr  »."
   },
   {
     type: "L’ORGANISATION MUNICIPALE",
