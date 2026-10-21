@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="fr">
 <head>
@@ -22,7 +23,6 @@
   </header>
 
   <main class="shell">
-
     <section id="videoIntro" class="screen video-intro-screen">
       <div class="video-intro-content">
         <p class="eyebrow">
@@ -116,9 +116,7 @@
         <div class="question-side">
           <div class="sigil">?</div>
           <p class="side-label">INDICE À DÉCRYPTER</p>
-          <p class="side-quote">
-            « Les réponses sont à portée de clic… »
-          </p>
+          <p class="side-quote">« Les réponses sont à portée de clic… »</p>
           <div class="side-stamp">ARCHIVES<br><strong>CONFLANS</strong></div>
         </div>
 
@@ -152,7 +150,7 @@
 
       <div class="score-card">
         <span>TON SCORE</span>
-        <strong id="finalScore">0/5</strong>
+        <strong id="finalScore">0/6</strong>
         <span id="scoreMessage">Chaque indice compte.</span>
       </div>
 
@@ -163,10 +161,9 @@
         <button id="reviewBtn" class="btn btn-secondary">
           Revoir les réponses
         </button>
-        
-         <button id="surveyBtn" class="btn btn-primary">
-    Répondre au questionnaire <span>→</span>
-  </button>
+        <button id="surveyBtn" class="btn btn-primary">
+          Répondre au questionnaire <span>→</span>
+        </button>
       </div>
 
       <p class="small-note">
@@ -186,95 +183,53 @@
       </button>
     </section>
 
-<!-- ÉCRAN DU FORMULAIRE DE RÉPONSE -->
-<section id="survey" class="screen survey-screen hidden">
-  <div class="survey-content">
-    <p class="eyebrow">
-      <span class="eyebrow-line"></span>
-      DERNIÈRE ÉTAPE DE L’ENQUÊTE
-    </p>
+    <section id="survey" class="screen survey-screen hidden">
+      <div class="survey-content">
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span>
+          DERNIÈRE ÉTAPE DE L’ENQUÊTE
+        </p>
 
-    <h1>Avant de quitter <em>le mystère…</em></h1>
+        <h1>Avant de quitter <em>le mystère…</em></h1>
 
-    <p class="lead">
-      Merci d’avoir participé ! Prends quelques instants
-      pour répondre à notre questionnaire.
-    </p>
+        <p class="lead">
+          Merci d’avoir participé ! Prends quelques instants
+          pour répondre à notre questionnaire.
+        </p>
 
-    <div class="survey-frame">
-      <iframe
-        src="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
-        title="Questionnaire de participation — Le mystère de la mairie"
-        loading="lazy"
-        allow="fullscreen"
-        referrerpolicy="strict-origin-when-cross-origin">
-      </iframe>
-    </div>
+        <div class="survey-frame">
+          <iframe
+            src="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
+            title="Questionnaire de participation — Le mystère de la mairie"
+            loading="lazy"
+            allow="fullscreen"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
 
-    <p class="small-note">
-      Si le questionnaire ne s’affiche pas,
-      <a
-        href="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
-        target="_blank"
-        rel="noopener noreferrer">
-        ouvre-le dans une nouvelle fenêtre.
-      </a>
-    </p>
+        <p class="small-note">
+          Si le questionnaire ne s’affiche pas,
+          <a
+            href="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
+            target="_blank"
+            rel="noopener noreferrer">
+            ouvre-le dans une nouvelle fenêtre.
+          </a>
+        </p>
 
-    <button id="backToResultBtn" class="btn btn-secondary">
-      ← Retour au résultat
-    </button>
-  </div>
-</section>
-<!-- ÉCRAN DU QUESTIONNAIRE -->
-<section id="survey" class="screen survey-screen hidden">
-  <div class="survey-content">
-    <p class="eyebrow">
-      <span class="eyebrow-line"></span>
-      DERNIÈRE ÉTAPE DE L’ENQUÊTE
-    </p>
-
-    <h1>Avant de quitter <em>le mystère…</em></h1>
-
-    <p class="lead">
-      Merci d’avoir participé ! Prends quelques instants
-      pour répondre à notre questionnaire.
-    </p>
-
-    <div class="survey-frame">
-      <iframe
-        src="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
-        title="Questionnaire de participation — Le mystère de la mairie"
-        loading="lazy"
-        allow="fullscreen"
-        referrerpolicy="strict-origin-when-cross-origin">
-      </iframe>
-    </div>
-
-    <p class="small-note">
-      Si le questionnaire ne s’affiche pas,
-      <a
-        href="https://app.questionnaireweb.com/f/457547/4qkpHXZK3xfnnXtSuTcBqm"
-        target="_blank"
-        rel="noopener noreferrer">
-        ouvre-le dans une nouvelle fenêtre.
-      </a>
-    </p>
-
-    <button id="backToResultBtn" class="btn btn-secondary">
-      ← Retour au résultat
-    </button>
-  </div>
-</section>
+        <button id="backToResultBtn" class="btn btn-secondary">
+          ← Retour au résultat
+        </button>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <span>CONFLANS-SAINTE-HONORINE</span>
     <span>UN QUIZ QUI FAIT FRISSONNER ✦</span>
   </footer>
-    
-  <!-- SCRIPT ORIGINAL DU QUIZ -->
-  <script src="script.js"></script>
 
+  <script src="script.js"></script>
 </body>
 </html>
+```
