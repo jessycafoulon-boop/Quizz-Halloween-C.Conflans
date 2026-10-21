@@ -1,10 +1,9 @@
-
+```javascript
 /* =========================================================
    QUIZ : LES COULISSES DE LA MAIRIE DE CONFLANS
    Questions, score, résultats, musique et questionnaire
 ========================================================= */
 
-// PERSONNALISE LES QUESTIONS ET LES RÉPONSES
 const questions = [
   {
     type: "LES COULISSES DE LA MAIRIE",
@@ -60,7 +59,6 @@ const questions = [
   }
 ];
 
-// QUESTION BONUS
 const bonus = {
   type: "QUESTION BONUS — LE SECRET DE CONFLANS",
   text: "Sous quel surnom notre ville est-elle connue ?",
@@ -74,9 +72,9 @@ const bonus = {
   explanation: "La capitale de la batellerie ! Fière de ce surnom, notre ville possède un joli musée dédié à l'histoire de notre ville. Si ce n'est pas déjà fait, va vite le visiter !"
 };
 
-// =========================================================
-// VARIABLES DU QUIZ
-// =========================================================
+/* =========================================================
+   VARIABLES DU QUIZ
+========================================================= */
 
 let current = 0;
 let score = 0;
@@ -96,27 +94,19 @@ const screens = [
 ];
 
 function showScreen(id) {
-  screens.forEach(screen => {
-    const element = $(screen);
+  screens.forEach(screenId => {
+    const element = $(screenId);
     if (element) {
-      element.classList.toggle("hidden", screen !== id);
+      element.classList.toggle("hidden", screenId !== id);
     }
   });
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "auto" });
 }
 
-// =========================================================
-// QUESTIONNAIRE QUESTIONNAIREWEB
-// =========================================================
-
-function showSurvey() {
-  showScreen("survey");
-}
-
-// =========================================================
-// VIDÉO D'INTRODUCTION
-// =========================================================
+/* =========================================================
+   VIDEO D'INTRODUCTION
+========================================================= */
 
 function leaveVideoIntro() {
   const video = $("openingVideo");
@@ -130,7 +120,6 @@ function leaveVideoIntro() {
 
 function startOpeningVideo() {
   const video = $("openingVideo");
-
   if (!video) return;
 
   video.muted = true;
@@ -143,17 +132,15 @@ function startOpeningVideo() {
 
       if (note) {
         note.textContent =
-          "CLIQUE SUR LA VIDÉO POUR LANCER L’INTRODUCTION";
+          "CLIQUE SUR « PASSER L’INTRODUCTION » POUR CONTINUER";
       }
-
-      video.controls = true;
     });
   }
 }
 
-// =========================================================
-// DÉMARRAGE ET AFFICHAGE DU QUIZ
-// =========================================================
+/* =========================================================
+   DEMARRAGE DU QUIZ
+========================================================= */
 
 function begin() {
   current = 0;
@@ -164,7 +151,6 @@ function begin() {
 
   showScreen("quiz");
   renderQuestion();
-
   startMissionMusic();
 }
 
@@ -183,17 +169,15 @@ function renderQuestion() {
     `${score} POINT${score > 1 ? "S" : ""}`;
 
   $("progressBar").style.width =
-    `${Math.min(100, current / questions.length * 100)}%`;
+    `${Math.min(100, current / (questions.length + 1) * 100)}%`;
 
   $("questionType").textContent = q.type;
   $("questionText").textContent = q.text;
   $("questionHint").textContent = q.hint;
 
   $("answers").innerHTML = "";
-
   $("feedback").className = "feedback hidden";
   $("feedback").textContent = "";
-
   $("nextBtn").disabled = true;
 
   $("nextBtn").innerHTML = isBonus
@@ -208,15 +192,17 @@ function renderQuestion() {
 
   q.answers.forEach((answer, i) => {
     const button = document.createElement("button");
-
     button.className = "answer-option";
     button.type = "button";
 
-    button.innerHTML =
-      `<span class="answer-key">${String.fromCharCode(65 + i)}</span><span></span>`;
+    const key = document.createElement("span");
+    key.className = "answer-key";
+    key.textContent = String.fromCharCode(65 + i);
 
-    button.querySelector("span:last-child").textContent = answer;
+    const label = document.createElement("span");
+    label.textContent = answer;
 
+    button.append(key, label);
     button.addEventListener("click", () => selectAnswer(i));
 
     $("answers").appendChild(button);
@@ -233,14 +219,13 @@ function selectAnswer(i) {
   });
 
   $("nextBtn").disabled = false;
-
   $("answerNote").textContent =
     "Indice sélectionné. Prêt à vérifier ?";
 }
 
-// =========================================================
-// VALIDATION DES RÉPONSES
-// =========================================================
+/* =========================================================
+   VALIDATION DES REPONSES
+========================================================= */
 
 function validateAnswer() {
   if (selected === null || locked) return;
@@ -309,9 +294,9 @@ function nextQuestion() {
   renderQuestion();
 }
 
-// =========================================================
-// ÉCRAN DES RÉSULTATS
-// =========================================================
+/* =========================================================
+   RESULTATS
+========================================================= */
 
 function showResult() {
   showScreen("result");
@@ -319,7 +304,6 @@ function showResult() {
   $("progressBar").style.width = "100%";
 
   const max = questions.length + 1;
-
   $("finalScore").textContent = `${score}/${max}`;
 
   let title = "Le mystère reste entier…";
@@ -346,9 +330,9 @@ function showResult() {
     `${score} bonne${score > 1 ? "s" : ""} réponse${score > 1 ? "s" : ""} sur ${max}`;
 }
 
-// =========================================================
-// CORRECTION DES RÉPONSES
-// =========================================================
+/* =========================================================
+   CORRECTION DES REPONSES
+========================================================= */
 
 function showReview() {
   $("reviewList").innerHTML = "";
@@ -369,24 +353,30 @@ function showReview() {
 
     const strong = document.createElement("strong");
     strong.textContent = a.correct;
-
     p2.appendChild(strong);
 
     const p3 = document.createElement("p");
     p3.textContent = a.explanation;
 
     item.append(h, p1, p2, p3);
-
     $("reviewList").appendChild(item);
   });
 
   showScreen("review");
 }
 
-// =========================================================
-// MUSIQUE LOCALE
-// Place le MP3 dans le même dossier que index.html.
-// =========================================================
+/* =========================================================
+   QUESTIONNAIRE
+========================================================= */
+
+function showSurvey() {
+  showScreen("survey");
+}
+
+/* =========================================================
+   MUSIQUE
+   Conserver le MP3 dans le même dossier que index.html.
+========================================================= */
 
 let missionMusicActive = false;
 let missionAudio = null;
@@ -414,15 +404,6 @@ function ensureMissionAudio() {
   return missionAudio;
 }
 
-function prepareMissionMusic() {
-  const audio = ensureMissionAudio();
-  const attempt = audio.play();
-
-  if (attempt && typeof attempt.catch === "function") {
-    attempt.catch(() => {});
-  }
-}
-
 function startMissionMusic() {
   const audio = ensureMissionAudio();
   missionMusicActive = true;
@@ -436,11 +417,6 @@ function startMissionMusic() {
   }
 }
 
-function stopMissionMusic() {
-  missionMusicActive = false;
-  if (missionAudio) missionAudio.pause();
-}
-
 function resumeMissionMusicIfNeeded() {
   if (!missionMusicActive || !missionAudio) return;
 
@@ -451,45 +427,30 @@ function resumeMissionMusicIfNeeded() {
   }
 }
 
-// =========================================================
-// INITIALISATION DES BOUTONS ET ÉVÉNEMENTS
-// =========================================================
+/* =========================================================
+   INITIALISATION DES EVENEMENTS
+========================================================= */
 
 $("startBtn").addEventListener("click", begin);
-
 $("skipVideoBtn").addEventListener("click", leaveVideoIntro);
-
 $("openingVideo").addEventListener("ended", leaveVideoIntro);
 
-window.addEventListener("load", function () {
-  startOpeningVideo();
-  prepareMissionMusic();
-});
-
-// Relance la musique lors de la première interaction si nécessaire.
-document.addEventListener("click", function () {
-  if (!missionMusicActive) {
-    startMissionMusic();
-  }
-}, { once: true, capture: true });
-
 $("nextBtn").addEventListener("click", nextQuestion);
-
 $("replayBtn").addEventListener("click", begin);
-
 $("reviewBtn").addEventListener("click", showReview);
 
-// Retour du carnet de correction au résultat.
 $("backResultBtn").addEventListener("click", () => {
   showScreen("result");
 });
 
-// Accès au questionnaire.
 $("surveyBtn").addEventListener("click", showSurvey);
 
-// Retour du questionnaire au résultat.
 $("backToResultBtn").addEventListener("click", () => {
   showScreen("result");
+});
+
+window.addEventListener("load", () => {
+  startOpeningVideo();
 });
 
 document.addEventListener("visibilitychange", () => {
@@ -498,18 +459,5 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
-window.addEventListener("focus", () => {
-  resumeMissionMusicIfNeeded();
-});
-const surveyBtn = document.getElementById("surveyBtn");
-const backToResultBtn = document.getElementById("backToResultBtn");
-
-if (surveyBtn) {
-  surveyBtn.addEventListener("click", showSurvey);
-}
-
-if (backToResultBtn) {
-  backToResultBtn.addEventListener("click", () => {
-    showScreen("result");
-  });
-}
+window.addEventListener("focus", resumeMissionMusicIfNeeded);
+```
