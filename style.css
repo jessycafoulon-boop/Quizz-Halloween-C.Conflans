@@ -14,27 +14,59 @@
 .video-still b{font:clamp(20px,3vw,32px)/1.1 'Playfair Display',serif;letter-spacing:.04em}
 .video-still small{font:9px 'DM Mono',monospace;letter-spacing:.16em;color:var(--muted)}
 @media(max-width:760px){.video-intro-bottom{align-items:stretch;flex-direction:column}.video-intro-bottom .btn{width:100%}.opening-video-frame{aspect-ratio:16/9;max-height:55vh}}
-/* Écran du questionnaire */
+
+/* ===== Questionnaire responsive PC et mobile ===== */
+
 .survey-screen {
-  width: 100%;
   box-sizing: border-box;
-  padding: 32px 20px;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: clamp(10px, 2vh, 22px) clamp(12px, 3vw, 32px);
+  overflow: hidden;
 }
 
 .survey-content {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 900px;
+  max-width: 1050px;
+  height: 100%;
+  min-height: 0;
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(5px, 1vh, 12px);
+}
+
+.survey-content .eyebrow {
+  margin: 0;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+}
+
+.survey-content h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
+.survey-content .lead {
+  margin: 0;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: 1.4;
 }
 
 .survey-frame {
+  flex: 1 1 0;
+  min-height: 0;
   width: 100%;
-  height: 75vh;
-  min-height: 520px;
-  margin: 28px 0 16px;
-  overflow: hidden;
+  margin: 4px 0;
+  overflow: auto;
+  overscroll-behavior: contain;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
+  border-radius: 10px;
   background: #fff;
 }
 
@@ -42,30 +74,80 @@
   display: block;
   width: 100%;
   height: 100%;
+  min-height: 0;
   border: 0;
   background: #fff;
 }
 
 .survey-content .small-note {
-  margin: 12px 0 24px;
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  line-height: 1.3;
+}
+
+.survey-content #backToResultBtn {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin: 0;
+  padding: 9px 16px;
   font-size: 0.9rem;
 }
 
-.survey-content .small-note a {
-  text-decoration: underline;
-}
-
-#backToResultBtn {
-  margin-top: 8px;
-}
-
+/* Petits écrans */
 @media (max-width: 600px) {
   .survey-screen {
-    padding: 24px 14px;
+    padding: 8px 10px;
+  }
+
+  .survey-content {
+    gap: 6px;
+  }
+
+  .survey-content h1 {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+  }
+
+  .survey-content .lead {
+    font-size: 0.82rem;
   }
 
   .survey-frame {
-    height: 70vh;
-    min-height: 480px;
+    border-radius: 7px;
+  }
+
+  .survey-content #backToResultBtn {
+    align-self: stretch;
+    padding: 8px 12px;
+    font-size: 0.85rem;
   }
 }
+
+/* Écrans mobiles très bas en hauteur */
+@media (max-height: 600px) {
+  .survey-screen {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .survey-content {
+    gap: 4px;
+  }
+
+  .survey-content .eyebrow {
+    font-size: 0.65rem;
+  }
+
+  .survey-content h1 {
+    font-size: 1.25rem;
+  }
+
+  .survey-content .lead {
+    font-size: 0.78rem;
+  }
+
+  .survey-content #backToResultBtn {
+    padding: 6px 12px;
+  }
+}
+
