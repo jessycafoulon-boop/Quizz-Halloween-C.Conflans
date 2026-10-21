@@ -1128,3 +1128,432 @@ h1, h2, h3, p {
     scroll-behavior: auto !important;
   }
 }
+/* ==========================================
+   CORRECTION AFFICHAGE MOBILE
+   À ajouter à la toute fin de style.css
+========================================== */
+
+@media screen and (max-width: 760px) {
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .topbar {
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .brand {
+    white-space: normal;
+    line-height: 1.5;
+  }
+
+  .top-right {
+    flex-shrink: 0;
+    max-width: 45%;
+    line-height: 1.4;
+  }
+
+  .shell {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    min-height: calc(100vh - 110px);
+    min-height: calc(100dvh - 110px);
+    height: auto;
+    margin: 0;
+    padding: 24px 14px 30px;
+    overflow: visible;
+  }
+
+  .screen {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* INTRODUCTION */
+
+  .intro-screen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .intro-copy h1 {
+    font-size: clamp(42px, 12vw, 62px);
+    line-height: 1.02;
+    overflow-wrap: anywhere;
+  }
+
+  .intro-copy .lead {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .intro-meta {
+    gap: 8px;
+    font-size: 8px;
+    line-height: 1.6;
+  }
+
+  .intro-copy > .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .intro-art {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* INTRO VIDEO */
+
+  .video-intro-screen {
+    width: 100%;
+  }
+
+  .opening-video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: none;
+    padding: 4px;
+  }
+
+  .opening-video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .video-intro-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .video-intro-bottom .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  /* QUIZ */
+
+  .quiz-heading {
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .quiz-heading .eyebrow {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .progress-row {
+    font-size: 9px;
+  }
+
+  .question-layout {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .question-side {
+    display: none;
+  }
+
+  .question-main {
+    width: 100%;
+    min-width: 0;
+    padding: 20px 14px;
+  }
+
+  .question-main h2 {
+    font-size: clamp(23px, 6.3vw, 30px);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .hint {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .answers {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .answer-option {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .answer-option > span:last-child {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .answer-key {
+    flex-shrink: 0;
+  }
+
+  .question-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .question-actions .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+  }
+
+  .answer-note {
+    order: 2;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .feedback {
+    font-size: 13px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+
+  /* RESULTATS */
+
+  .result-screen {
+    width: 100%;
+    padding: 8px 0 20px;
+  }
+
+  .result-screen h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .result-screen .lead {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .score-card {
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .result-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .result-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: space-between;
+  }
+
+  /* RELECTURE */
+
+  .review-screen h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.1;
+  }
+
+  .review-item {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .review-item h3,
+  .review-item p {
+    overflow-wrap: anywhere;
+  }
+
+  .review-screen > .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* QUESTIONNAIRE :
+     abandon de la hauteur fixe sur téléphone */
+
+  .shell:has(.survey-screen:not(.hidden)) {
+    display: block;
+    width: auto;
+    height: auto;
+    min-height: calc(100vh - 110px);
+    min-height: calc(100dvh - 110px);
+    padding: 18px 10px 24px;
+    align-items: initial;
+    overflow: visible;
+  }
+
+  .survey-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .survey-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    gap: 12px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .survey-content > .eyebrow {
+    flex: initial;
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .survey-content h1 {
+    flex: initial;
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .survey-content .lead {
+    flex: initial;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .survey-frame {
+    flex: initial;
+    width: 100%;
+    height: 68vh;
+    height: 68dvh;
+    min-height: 420px;
+    max-height: 760px;
+    margin: 4px 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 6px;
+  }
+
+  .survey-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 0;
+  }
+
+  .survey-content .small-note {
+    flex: initial;
+    font-size: 11px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .survey-content #backToResultBtn {
+    flex: initial;
+    align-self: stretch;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px;
+  }
+
+  /* PIED DE PAGE */
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 14px;
+    font-size: 8px;
+    line-height: 1.6;
+  }
+
+  .footer span {
+    max-width: 48%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Petits téléphones */
+
+@media screen and (max-width: 380px) {
+  .topbar {
+    padding-inline: 10px;
+  }
+
+  .top-right {
+    font-size: 7px;
+  }
+
+  .shell {
+    padding-inline: 10px;
+  }
+
+  .question-main {
+    padding: 16px 11px;
+  }
+
+  .answer-option {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .survey-frame {
+    height: 65dvh;
+    min-height: 380px;
+  }
+
+  .footer {
+    padding-inline: 10px;
+    font-size: 7px;
+  }
+}
+
