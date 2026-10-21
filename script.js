@@ -1,6 +1,7 @@
+
 /* =========================================================
    QUIZ : LES COULISSES DE LA MAIRIE DE CONFLANS
-   Questions, score, résultats et musique locale
+   Questions, score, résultats, musique et questionnaire
 ========================================================= */
 
 // PERSONNALISE LES QUESTIONS ET LES RÉPONSES
@@ -19,29 +20,41 @@ const questions = [
     hint: "Sais-tu sur quel onglet cliquer dans C.Conflans pour y accéder ?",
     answers: ["Le calendrier des fêtes", "L’annuaire", "Le plan des rues"],
     correct: 1,
-    explanation: "C'est bien sûr l’annuaire ! Pratique et intuitif, il te permettra de retrouver rapidement un collègue, sa fonction et même de l'appeller, juste en tapant son nom !"
+    explanation: "C'est bien sûr l’annuaire ! Pratique et intuitif, il te permettra de retrouver rapidement un collègue, sa fonction et même de l'appeler, juste en tapant son nom !"
   },
   {
     type: "UN NOUVEL AGENT TRÈS SPÉCIAL ?",
     text: "J’ai quatre pattes, deux grandes oreilles et je viens de rejoindre la mairie",
     hint: "Qui suis-je ?",
-    answers: ["Matricule 300, chiot à la Police municipale", "Moka, lapin mascotte de la crèche Arlequin", "Gloria, la chèvre qui écopature au Parc du Prieuré"],
+    answers: [
+      "Matricule 300, chiot à la Police municipale",
+      "Moka, lapin mascotte de la crèche Arlequin",
+      "Gloria, la chèvre qui écopature au Parc du Prieuré"
+    ],
     correct: 0,
     explanation: "La bonne réponse est Matricule 300 ! Cet adorable Malinois vient de rejoindre nos équipes 🥰 Si tu veux en savoir plus, consulte l'article qui lui a été consacré cette semaine !"
   },
   {
     type: "NOËL APPROCHE",
-    text: "Quand auras lieu l'arbre de Noël du COS ? ».",
+    text: "Quand aura lieu l'arbre de Noël du COS ?",
     hint: "Tu connais la date ?",
-    answers: ["Le 12 décembre à partir de 14h00", "le 25 décembre à minuit", "lundi de Pâques"],
+    answers: [
+      "Le 12 décembre à partir de 14h00",
+      "Le 25 décembre à minuit",
+      "Lundi de Pâques"
+    ],
     correct: 0,
-    explanation: "Et oui, le 12 décembre prochain, petits et grands sont invités à partagés un moment festif et plein de surprises, à condition de s'y être incrit bien sûr  »."
+    explanation: "Et oui, le 12 décembre prochain, petits et grands sont invités à partager un moment festif et plein de surprises, à condition de s'y être inscrits bien sûr !"
   },
   {
     type: "L’ORGANISATION MUNICIPALE",
     text: "Je permets de comprendre comment les services de la mairie sont organisés et à qui ils sont rattachés.",
     hint: "Quel outil est décrit ici ?",
-    answers: ["L’organigramme", "Le journal municipal", "Le menu de la cantine"],
+    answers: [
+      "L’organigramme",
+      "Le journal municipal",
+      "Le menu de la cantine"
+    ],
     correct: 0,
     explanation: "L’organigramme aide à comprendre la structure des services municipaux."
   }
@@ -78,7 +91,8 @@ const screens = [
   "intro",
   "quiz",
   "result",
-  "review"
+  "review",
+  "survey"
 ];
 
 function showScreen(id) {
@@ -90,6 +104,14 @@ function showScreen(id) {
   });
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// =========================================================
+// QUESTIONNAIRE QUESTIONNAIREWEB
+// =========================================================
+
+function showSurvey() {
+  showScreen("survey");
 }
 
 // =========================================================
@@ -143,7 +165,6 @@ function begin() {
   showScreen("quiz");
   renderQuestion();
 
-  // La musique est demandée après le clic de l'utilisateur.
   startMissionMusic();
 }
 
@@ -363,9 +384,8 @@ function showReview() {
 }
 
 // =========================================================
-// INTÉGRATION MUSICALE — FICHIER MP3 LOCAL INVISIBLE
-// Place « Sinister - Anno Domini Beats.mp3 » dans le même dossier
-// que index.html et script.js.
+// MUSIQUE LOCALE
+// Place le MP3 dans le même dossier que index.html.
 // =========================================================
 
 let missionMusicActive = false;
@@ -390,31 +410,27 @@ function ensureMissionAudio() {
   missionAudio.loop = true;
   missionAudio.preload = "auto";
   missionAudio.volume = 0.5;
+
   return missionAudio;
 }
 
-// Prépare la musique dès l'ouverture et tente de la lancer.
-// Certains navigateurs bloquent la lecture automatique avec le son.
 function prepareMissionMusic() {
   const audio = ensureMissionAudio();
   const attempt = audio.play();
 
   if (attempt && typeof attempt.catch === "function") {
-    attempt.catch(() => {
-      // Le son sera relancé lors de la première interaction de l'utilisateur.
-    });
+    attempt.catch(() => {});
   }
 }
 
-// Appelée depuis un clic : les navigateurs autorisent plus souvent
-// la lecture audio lorsqu'elle répond directement à une interaction.
 function startMissionMusic() {
   const audio = ensureMissionAudio();
   missionMusicActive = true;
 
   const attempt = audio.play();
+
   if (attempt && typeof attempt.catch === "function") {
-    attempt.catch((error) => {
+    attempt.catch(error => {
       console.warn("Impossible de démarrer la musique :", error);
     });
   }
@@ -429,6 +445,7 @@ function resumeMissionMusicIfNeeded() {
   if (!missionMusicActive || !missionAudio) return;
 
   const attempt = missionAudio.play();
+
   if (attempt && typeof attempt.catch === "function") {
     attempt.catch(() => {});
   }
@@ -446,13 +463,10 @@ $("openingVideo").addEventListener("ended", leaveVideoIntro);
 
 window.addEventListener("load", function () {
   startOpeningVideo();
-
-  // Prépare le fichier MP3 et tente la lecture dès l'ouverture du site.
   prepareMissionMusic();
 });
 
-// Si l'autoplay sonore est bloqué, la première interaction du visiteur
-// réessaie de lancer la musique.
+// Relance la musique lors de la première interaction si nécessaire.
 document.addEventListener("click", function () {
   if (!missionMusicActive) {
     startMissionMusic();
@@ -465,7 +479,16 @@ $("replayBtn").addEventListener("click", begin);
 
 $("reviewBtn").addEventListener("click", showReview);
 
+// Retour du carnet de correction au résultat.
 $("backResultBtn").addEventListener("click", () => {
+  showScreen("result");
+});
+
+// Accès au questionnaire.
+$("surveyBtn").addEventListener("click", showSurvey);
+
+// Retour du questionnaire au résultat.
+$("backToResultBtn").addEventListener("click", () => {
   showScreen("result");
 });
 
