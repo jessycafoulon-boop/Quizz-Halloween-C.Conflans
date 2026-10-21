@@ -501,3 +501,15 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("focus", () => {
   resumeMissionMusicIfNeeded();
 });
+const surveyBtn = document.getElementById("surveyBtn");
+const backToResultBtn = document.getElementById("backToResultBtn");
+
+if (surveyBtn) {
+  surveyBtn.addEventListener("click", showSurvey);
+}
+
+if (backToResultBtn) {
+  backToResultBtn.addEventListener("click", () => {
+    showScreen("result");
+  });
+}
