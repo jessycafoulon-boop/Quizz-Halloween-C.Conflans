@@ -46,15 +46,15 @@ const questions = [
   },
   {
     type: "L’ORGANISATION MUNICIPALE",
-    text: "Je permets de comprendre comment les services de la mairie sont organisés et à qui ils sont rattachés.",
-    hint: "Quel outil est décrit ici ?",
+    text: "Je te permet de comprendre comment les services de la mairie sont organisés et à qui ils sont rattachés.",
+    hint: "Qui suis-je ?",
     answers: [
-      "L’organigramme",
+      "L’organigramme général des services",
       "Le journal municipal",
       "Le menu de la cantine"
     ],
     correct: 0,
-    explanation: "L’organigramme aide à comprendre la structure des services municipaux."
+    explanation: "Je viens de connaître quelques changements, n'hésite pas à me consulter en te rendant dans la communauté Notre organisation"
   }
 ];
 
